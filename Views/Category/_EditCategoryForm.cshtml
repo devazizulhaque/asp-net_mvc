@@ -1,0 +1,70 @@
+@model MyMvcApp.Models.DTOs.UpdateCategoryDto
+
+<div class="modal fade" id="edit-category">
+    <div class="modal-dialog modal-dialog-centered custom-modal-two">
+        <div class="modal-content">
+            <div class="page-wrapper-new p-0">
+                <div class="content">
+                    <div class="modal-header border-0 custom-modal-header">
+                        <div class="page-title">
+                            <h4>Edit Category</h4>
+                        </div>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body custom-modal-body">
+                        <form id="edit-category-form" asp-action="Edit" asp-controller="Categories" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <!-- Category Name -->
+                            <div class="mb-3">
+                                <label asp-for="Name" class="form-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <!-- Slug -->
+                            <div class="mb-3">
+                                <label asp-for="Slug" class="form-label"></label>
+                                <input asp-for="Slug" class="form-control" readonly />
+                                <span asp-validation-for="Slug" class="text-danger"></span>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="mb-3">
+                                <label asp-for="Description" class="form-label"></label>
+                                <textarea asp-for="Description" class="form-control"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+
+                            <!-- Image Upload -->
+                            <div class="mb-3">
+                                <label asp-for="ImageFile" class="form-label"></label>
+                                <input asp-for="ImageFile" type="file" class="form-control" />
+                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                <!-- optional preview -->
+                                <div id="edit-image-preview" class="mt-2"></div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="mb-0">
+                                <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
+                                    <span class="status-label">Status</span>
+                                    <input asp-for="IsActive" class="check" type="checkbox" />
+                                    <label for="IsActive" class="checktoggle"></label>
+                                </div>
+                                <span asp-validation-for="IsActive" class="text-danger"></span>
+                            </div>
+
+                            <!-- Footer buttons -->
+                            <div class="modal-footer-btn">
+                                <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-submit">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

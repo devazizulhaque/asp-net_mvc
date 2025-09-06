@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="POS - Bootstrap Admin Template" />
+    <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, projects" />
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>@ViewData["Title"] - MyMvcApp</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-datetimepicker.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/animate.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/feather.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/select2/css/select2.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/summernote/summernote-bs4.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-tagsinput.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/dataTables.bootstrap5.min.css" asp-append-version="true" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="~/css/fontawesome/fontawesome.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fontawesome/all.min.css" asp-append-version="true" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyMvcApp.styles.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <div id="global-loader">
+        <div class="whirly-loader"></div>
+    </div>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        @await Html.PartialAsync("_Header")
+        @await Html.PartialAsync("_Sidebar")
+
+        <div class="page-wrapper">
+            <div class="content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <!-- Core JS -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="~/lib/feather/feather.min.js"></script>
+    <script src="~/lib/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/lib/select2/js/select2.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.dataTables.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/lib/summernote/summernote-bs4.min.js"></script>
+    <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="~/lib/moment/moment.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/lib/apexchart/apexcharts.min.js"></script>
+    <script src="~/lib/apexchart/chart-data.js"></script>
+    <script src="~/lib/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="~/lib/sweetalert/sweetalerts.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    <script src="~/js/custom-select2.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

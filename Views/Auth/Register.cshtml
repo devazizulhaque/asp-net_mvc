@@ -1,0 +1,82 @@
+@model MyMvcApp.Models.DTOs.RegisterDto
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_AuthLayout";
+}
+
+<form asp-action="Register" method="post">
+    @Html.AntiForgeryToken()
+    <div class="login-userset">
+        <div class="login-userheading">
+            <h3>Register</h3>
+            <h4>Create New Dreamspos Account</h4>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-login">
+                    <label>First Name</label>
+                    <div class="form-addons">
+                        <input asp-for="FirstName" type="text" class="form-control">
+                        <img src="~/img/icons/user-icon.svg" alt="img">
+                    </div>
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-login">
+                    <label>Last Name</label>
+                    <div class="form-addons">
+                        <input asp-for="LastName" type="text" class="form-control">
+                        <img src="~/img/icons/user-icon.svg" alt="img">
+                    </div>
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-login">
+            <label>Email Address</label>
+            <div class="form-addons">
+                <input asp-for="Email" type="text" class="form-control">
+                <img src="~/img/icons/mail.svg" alt="img">
+            </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-login">
+            <label>Password</label>
+            <div class="pass-group">
+                <input asp-for="Password" type="password" class="pass-input">
+                <span class="fas toggle-password fa-eye-slash"></span>
+            </div>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-login">
+            <label>Confirm Password</label>
+            <div class="pass-group">
+                <input asp-for="ConfirmPassword" type="password" class="pass-inputs">
+                <span class="fas toggle-passwords fa-eye-slash"></span>
+            </div>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-login authentication-check">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="custom-control custom-checkbox justify-content-start">
+                        <div class="custom-control custom-checkbox">
+                            <label class="checkboxs ps-4 mb-0 pb-0 line-height-1">
+                                <input asp-for="TermsAccepted" type="checkbox" value="true">
+                                <span class="checkmarks"></span>I agree to the <a href="#" class="hover-a">Terms & Privacy</a>
+                            </label>
+                        </div>
+                        <span asp-validation-for="TermsAccepted" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-login">
+            <button type="submit" class="btn btn-login">Sign Up</button>
+        </div>
+        <div class="signinform">
+            <h4>Already have an account ? <a href="/" class="hover-a">Sign In Instead</a></h4>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,56 @@
+@model MyMvcApp.Models.DTOs.LoginDto
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_AuthLayout"; // আপনার layout file name, যদি _AuthLayout.cshtml হয়
+}
+<form asp-action="Login" method="post">
+    @Html.AntiForgeryToken()
+    <div class="login-userset">
+        <div class="login-userheading">
+            <h3>Sign In</h3>
+            <h4>Access the DreamsPOS panel using your email and passcode.</h4>
+        </div>
+
+        <div class="form-login">
+            <label class="form-label">Email Address</label>
+            <div class="form-addons">
+                <input asp-for="Email" type="text" class="form-control" />
+                <img src="~/img/icons/mail.svg" alt="Email Icon">
+            </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-login">
+            <label>Password</label>
+            <div class="pass-group">
+                <input asp-for="Password" type="password" class="pass-input" />
+                <span class="fas toggle-password fa-eye-slash"></span>
+            </div>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-login authentication-check">
+            <div class="row">
+                <div class="col-6">
+                    <div class="custom-control custom-checkbox">
+                        <label class="checkboxs ps-4 mb-0 pb-0 line-height-1">
+                            <input asp-for="RememberMe" type="checkbox" />
+                            <span class="checkmarks"></span>Remember me
+                        </label>
+                    </div>
+                </div>
+                <div class="col-6 text-end">
+                    <a class="forgot-link" href="/Auth/ForgotPassword">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-login">
+            <button class="btn btn-login" type="submit">Sign In</button>
+        </div>
+
+        <div class="signinform">
+            <h4>New on our platform?<a href="/Auth/Register" class="hover-a"> Create an account</a></h4>
+        </div>
+    </div>
+</form>
